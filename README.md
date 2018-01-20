@@ -11,10 +11,15 @@ To build and run this project you need;
 1. Java 8
 2. Maven 3
 
-## Build Project
+## Build Project (with Unit Tests)
 
 1. In command line, navigate to root folder (the folder where the pom.xml)
 2. Type `mvn clean install`
+
+## Run Integration Tests
+
+1. In command line, navigate to root folder (the folder where the pom.xml)
+2. Type `mvn clean install -DskipIntegrationTests=false`
 
 ## Run Project (in keyboard input mode)
 
