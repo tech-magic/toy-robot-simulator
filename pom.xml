@@ -45,7 +45,7 @@
     1. Running in standard input mode
     mvn exec:java
     2. Running in file mode
-    mvn exec:java -Dexec.args="src/main/resources/scenario1.txt"
+    mvn exec:java -Dexec.args="src/test/resources/scenario1.txt"
     -->
 
 </project>
