@@ -11,5 +11,6 @@ public class NoOpCommand implements Command {
     }
 
     public void execute() {
+        System.out.println("Unidentified Robot Simulator Command: Refer help for commands or type [ENTER] or [CTRL + C] to exit.");
     }
 }

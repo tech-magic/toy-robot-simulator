@@ -99,4 +99,38 @@ public class TableTest {
         // Assert
         assertFalse(result);
     }
+
+    @Test
+    public void testInvalidSurfaceConfiguration1() {
+        // Arrange
+        int minX = 5, minY = 0, maxX = 3, maxY = 5;
+        boolean exceptionFired = false;
+
+        // Act
+        try {
+            Table table = new Table(minX, maxX, minY, maxY);
+        } catch (IllegalArgumentException ex) {
+            exceptionFired = true;
+        }
+
+        // Assert
+        assertTrue(exceptionFired);
+    }
+
+    @Test
+    public void testInvalidSurfaceConfiguration2() {
+        // Arrange
+        int minX = 0, minY = 5, maxX = 5, maxY = 3;
+        boolean exceptionFired = false;
+
+        // Act
+        try {
+            Table table = new Table(minX, maxX, minY, maxY);
+        } catch (IllegalArgumentException ex) {
+            exceptionFired = true;
+        }
+
+        // Assert
+        assertTrue(exceptionFired);
+    }
 }

@@ -13,7 +13,7 @@ public class StdInputReader extends InputReader {
 
     @Override
     protected String getNextInputLine() throws IOException {
-        System.out.print("simulator prompt >");
+        System.out.println("simulator prompt >");
         return super.getNextInputLine();
     }
 

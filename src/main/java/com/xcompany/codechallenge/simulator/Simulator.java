@@ -21,6 +21,7 @@ public class Simulator {
     private static Object lock = new Object();
 
     private Robot robot;
+    private Surface surface;
 
     private Simulator() {
         this.setUp();
@@ -36,25 +37,33 @@ public class Simulator {
     }
 
     public void setUp() {
-        // Environment
-        Surface surface = new Table(
-                CommonConstants.SURFACE_MIN_X,
-                CommonConstants.SURFACE_MAX_X,
-                CommonConstants.SURFACE_MIN_Y,
-                CommonConstants.SURFACE_MAX_Y
-        );
-        EnvironmentAware environmentAware = new SurfaceAware(surface);
+        try {
+            // Environment
+            this.surface = new Table(
+                    CommonConstants.SURFACE_MIN_X,
+                    CommonConstants.SURFACE_MAX_X,
+                    CommonConstants.SURFACE_MIN_Y,
+                    CommonConstants.SURFACE_MAX_Y
+            );
+            EnvironmentAware environmentAware = new SurfaceAware(surface);
 
-        // Resolvers
-        PositionResolver positionResolver = new PositionResolver();
-        OrientationResolver orientationResolver = new OrientationResolver();
+            // Resolvers
+            PositionResolver positionResolver = new PositionResolver();
+            OrientationResolver orientationResolver = new OrientationResolver();
 
-        // Robot
-        this.robot = new Robot();
-        robot.setUp(environmentAware, positionResolver, orientationResolver);
+            // Robot
+            this.robot = new Robot();
+            robot.setUp(environmentAware, positionResolver, orientationResolver);
+        } catch (IllegalArgumentException iarex) {
+            System.out.println("Unable to setup simulator. Please check surface configurations at CommonConstants.");
+        }
     }
 
     public Robot getRobot() {
         return this.robot;
+    }
+
+    public Surface getSurface() {
+        return this.surface;
     }
 }

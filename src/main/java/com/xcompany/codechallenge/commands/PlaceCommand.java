@@ -28,7 +28,7 @@ public class PlaceCommand implements Command {
         } catch (IncompleteSetupException ins) {
             System.out.println("Robot Setup is Incomplete!");
         } catch (InvalidPlacementException invpl) {
-            System.out.println("Unable to place Robot on the surface!");
+            System.out.println("Unable to place Robot on the surface! " + Simulator.getInstance().getSurface());
         } catch (NumberFormatException nfe) {
             System.out.println("Invalid PLACE command. Couldn't place robot! > " + this.command);
         } catch (IllegalArgumentException iaex) {

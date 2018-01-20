@@ -12,6 +12,9 @@ public class Table implements Surface {
     private int maxY;
 
     public Table(int minX, int maxX, int minY, int maxY) {
+        if (minX > maxX || minY > maxY) {
+            throw new IllegalArgumentException();
+        }
         this.minX = minX;
         this.minY = minY;
         this.maxX = maxX;
@@ -23,5 +26,11 @@ public class Table implements Surface {
                 position.getX() <= this.maxX &&
                 position.getY() >= this.minY &&
                 position.getY() <= this.maxY);
+    }
+
+    @Override
+    public String toString() {
+        return "[ " + this.minX + " <= x <= " + this.maxX + " ] AND [ " +
+                this.minY + " <= y <= " + this.maxY + " ]";
     }
 }
