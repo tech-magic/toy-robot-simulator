@@ -19,13 +19,13 @@ To build and run this project you need;
 ## Run Project (in keyboard input mode)
 
 1. Navigate to root folder (the folder where the pom.xml)
-2. Type `mvn exec:java -Dexec.mainClass=com.xcompany.codechallenge.simulator.BootApplication`
+2. Type `mvn exec:java`
 3. Note that any empty keyboard input (input with no characters other than space) will terminate the program
 
 ## Run Project (in file mode)
 
 1. Navigate to root folder (the folder where the pom.xml)
-2. Type `mvn exec:java -Dexec.mainClass=com.xcompany.codechallenge.simulator.BootApplication -Dexec.args="src/main/resources/scenario1.txt"`
+2. Type `mvn exec:java -Dexec.args="src/main/resources/scenario1.txt"`
 3. There are 3 sample scenarios in `src/main/resources` folder.
 4. Note that any empty line in middle of a file (line with no characters other than space) will terminate the program
 
