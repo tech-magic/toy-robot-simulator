@@ -37,4 +37,13 @@ public abstract class InputReader {
     protected String getNextInputLine() throws IOException {
         return this.bufferedReader.readLine();
     }
+
+    @Override
+    public void finalize() {
+        try {
+            this.bufferedReader.close();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+    }
 }
